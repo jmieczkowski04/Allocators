@@ -15,14 +15,14 @@ public:
 
 public:
 	StackAllocator(uint32 StackSize);
-	StackAllocator(uint8* Mem, uint32 size, bool ShouldFree = false);
+	StackAllocator(uint8* Mem, uint32 Size, bool ShouldFree = false);
 	~StackAllocator();
 
-	uint8* alloc(uint32 size);
+	uint8* alloc(uint32 Size);
 	void Clear();
 
 	Marker GetCurrentMarker();
-	void ClearToMarker(Marker marker);
+	void ClearToMarker(Marker Marker);
 
 	uint32 GetAllocetedMem();
 	uint32 GetMaximumMem();

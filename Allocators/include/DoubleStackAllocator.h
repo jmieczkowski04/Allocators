@@ -19,12 +19,12 @@ public:
 	DoubleStackAllocator(uint8* Mem, uint32 Size, bool ShouldFree = false);
 	~DoubleStackAllocator();
 
-	uint8* allocLow(uint32 size);
-	uint8* allocHi(uint32 size);
+	uint8* allocLow(uint32 Size);
+	uint8* allocHi(uint32 Size);
 	void Clear();
 
 	Marker GetCurrentMarker();
-	void ClearToMarker(Marker marker);
+	void ClearToMarker(Marker Marker);
 
 	uint32 GetAllocetedMem();
 	uint32 GetMaximumMem();

@@ -20,13 +20,13 @@ StackAllocator::~StackAllocator()
 		delete mem;
 }
 
-uint8* StackAllocator::alloc(uint32 size)
+uint8* StackAllocator::alloc(uint32 Size)
 {
-	assert(memSize > usedMem + size);
+	assert(memSize > usedMem + Size);
 
 	uint8* out = stackTop;
-	usedMem += size;
-	stackTop = stackTop + size;
+	usedMem += Size;
+	stackTop = stackTop + Size;
 
 	return out;
 }
@@ -45,12 +45,12 @@ StackAllocator::Marker StackAllocator::GetCurrentMarker()
 	return marker;
 }
 
-void StackAllocator::ClearToMarker(Marker marker)
+void StackAllocator::ClearToMarker(Marker Marker)
 {
-	uint8* newTop = marker.pointer;
+	uint8* newTop = Marker.pointer;
 	assert((newTop >= mem) && (newTop <= stackTop));
 	stackTop = newTop;
-	usedMem = marker.used;
+	usedMem = Marker.used;
 }
 
 uint32 StackAllocator::GetAllocetedMem()

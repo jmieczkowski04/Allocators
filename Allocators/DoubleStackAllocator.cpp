@@ -22,23 +22,23 @@ DoubleStackAllocator::~DoubleStackAllocator()
 		delete mem;
 }
 
-uint8* DoubleStackAllocator::allocLow(uint32 size)
+uint8* DoubleStackAllocator::allocLow(uint32 Size)
 {
-	assert(hiStackTop > lowStackTop + size);
+	assert(hiStackTop > lowStackTop + Size);
 
 	uint8* out = lowStackTop;
-	usedMem += size;
-	lowStackTop = lowStackTop + size;
+	usedMem += Size;
+	lowStackTop = lowStackTop + Size;
 
 	return out;
 }
 
-uint8* DoubleStackAllocator::allocHi(uint32 size)
+uint8* DoubleStackAllocator::allocHi(uint32 Size)
 {
-	assert(lowStackTop < hiStackTop - size);
+	assert(lowStackTop < hiStackTop - Size);
 
-	uint8* out = hiStackTop - size;
-	usedMem += size;
+	uint8* out = hiStackTop - Size;
+	usedMem += Size;
 	hiStackTop = out;
 
 	return out;
@@ -60,14 +60,14 @@ DoubleStackAllocator::Marker DoubleStackAllocator::GetCurrentMarker()
 	return marker;
 }
 
-void DoubleStackAllocator::ClearToMarker(Marker marker)
+void DoubleStackAllocator::ClearToMarker(Marker Marker)
 {
-	uint8* newLowTop = marker.lowPointer;
-	uint8* newHiTop = marker.hiPointer;
+	uint8* newLowTop = Marker.lowPointer;
+	uint8* newHiTop = Marker.hiPointer;
 	assert((newLowTop >= mem) && (newHiTop <= mem + memSize) && (newLowTop <= lowStackTop) && (newHiTop >= hiStackTop));
 	lowStackTop = newLowTop;
 	hiStackTop = newHiTop;
-	usedMem = marker.used;
+	usedMem = Marker.used;
 }
 
 uint32 DoubleStackAllocator::GetAllocetedMem()
