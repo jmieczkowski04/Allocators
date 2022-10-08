@@ -12,6 +12,15 @@ PoolAllocator::PoolAllocator(uint32 ElementSize, uint32 ElementCount) : elementS
 	CreateFreeBlockList();
 }
 
+PoolAllocator::PoolAllocator(uint8* Mem, uint32 MemSize, uint32 ElementSize, uint32 ElementCount) : mem(Mem), elementSize(ElementSize), elementCount(ElementCount)
+{
+	assert(ElementSize > sizeof(NextFreeBlock));
+	assert(ElementCount > 0);
+	assert(MemSize = ElementCount * ElementSize);
+
+	CreateFreeBlockList();
+}
+
 PoolAllocator::~PoolAllocator()
 {
 	delete mem;

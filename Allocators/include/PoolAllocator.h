@@ -11,6 +11,7 @@ private:
 	};
 public:
 	PoolAllocator(uint32 ElementSize, uint32 ElementCount);
+	PoolAllocator(uint8* Mem, uint32 MemSize, uint32 ElementSize, uint32 ElementCount);
 	~PoolAllocator();
 
 	uint8* Alloc();
