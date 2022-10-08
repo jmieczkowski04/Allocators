@@ -1,5 +1,7 @@
 .vs/
 
+*.vcxproj.user
+
 # Build results
 x64/
 x86/
