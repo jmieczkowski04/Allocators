@@ -1,5 +1,6 @@
 #include "StackAllocator.h"
 #include "DoubleStackAllocator.h"
+#include "PoolAllocator.h"
 #include <cassert>
 #include <string.h>
 #include <stdio.h>
@@ -52,5 +53,14 @@ int main()
 		//back to state 1
 	}
 	
+	{
+		PoolAllocator allocator(9, 5);
+		uint8* a = allocator.Alloc();
+		allocator.Free(a);
+		uint8* b = allocator.Alloc();
+		//should be the same address
+		assert(a == b);
+		allocator.Clean();
+	}
 	
 }

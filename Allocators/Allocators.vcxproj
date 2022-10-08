@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DoubleStackAllocator.cpp" />
+    <ClCompile Include="PoolAllocator.cpp" />
     <ClCompile Include="StackAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\DoubleStackAllocator.h" />
     <ClInclude Include="include\GenericTypes.h" />
+    <ClInclude Include="include\PoolAllocator.h" />
     <ClInclude Include="include\StackAllocator.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

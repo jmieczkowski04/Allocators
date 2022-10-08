@@ -1,6 +1,6 @@
 # Memory allocators
 
-Small project, which provides custom memory allocators. Currently support only stack and double stack allocators. Additionaly, the project includes generic type redefinition.
+Small project, which provides custom memory allocators. Currently support stack, double stack and pool allocators. Additionaly, the project includes generic type redefinition.
 
 ## Features
 
@@ -16,6 +16,12 @@ Small project, which provides custom memory allocators. Currently support only s
 - Allocating memory from both tops of stack
 - Clearing the stack
 - Saving and restoring memory usage to Marker
+- Getting statistic of memory usage
+
+### Pool Allocator
+- Initialization with size of element and number of elements
+- Allocating and freeing memory
+- Clearing pool
 - Getting statistic of memory usage
 
 ## Usage
