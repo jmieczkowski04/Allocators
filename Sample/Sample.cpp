@@ -1,6 +1,7 @@
 #include "StackAllocator.h"
 #include "DoubleStackAllocator.h"
 #include "PoolAllocator.h"
+#include "AlignAllocator.h"
 #include <cassert>
 #include <string.h>
 #include <stdio.h>
@@ -51,6 +52,8 @@ int main()
 		uint8* someMem = allocator.allocLow(80);
 		allocator.ClearToMarker(mark1);
 		//back to state 1
+
+		printf("\n");
 	}
 	
 	{
@@ -63,4 +66,17 @@ int main()
 		allocator.Clean();
 	}
 	
+	{
+		uint8* a = AlignAllocator::Alloc(99, 4);
+
+		char text[] = "Lorem ipsum dolor sit amet, consectetur adipiscin50g elit. Donec tempus mi eget neque nullam sodal";
+
+		char* n = (char*)a;
+
+		memcpy(n, text, sizeof(char) * (strlen(text) + 1));
+
+		printf("%s", n);
+
+		AlignAllocator::Free(a);
+	}
 }

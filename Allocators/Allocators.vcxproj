@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlignAllocator.cpp" />
     <ClCompile Include="DoubleStackAllocator.cpp" />
     <ClCompile Include="PoolAllocator.cpp" />
     <ClCompile Include="StackAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\AlignAllocator.h" />
     <ClInclude Include="include\DoubleStackAllocator.h" />
     <ClInclude Include="include\GenericTypes.h" />
     <ClInclude Include="include\PoolAllocator.h" />

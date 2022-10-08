@@ -1,6 +1,6 @@
 # Memory allocators
 
-Small project, which provides custom memory allocators. Currently support stack, double stack and pool allocators. Additionaly, the project includes generic type redefinition.
+Small project, which provides custom memory allocators. Currently support stack, double stack, pool and align allocators. Additionaly, the project includes generic type redefinition.
 
 ## Features
 
